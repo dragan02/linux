@@ -124,6 +124,20 @@
 						reg = <0x60>;
 					};
 				};
+                
+                		/* PL061 GPIO */
+				gpio0: pl061@3000 {
+				    compatible = "arm,pl061", "arm,primecell";
+				    reg = <0x03000 0x1000>;
+				    interrupts = <26>;
+				    gpio-controller;
+				    #gpio-cells = <2>;
+				    gpio-line-names = "IN0", "IN1", "IN2", "IN3", "OUT0", "OUT1", "OUT2", "OUT3";
+				    interrupt-controller;
+				    #interrupt-cells = <2>;
+				    clocks = <&smbclk>;
+				    clock-names = "apb_pclk";
+				};
 
 				aaci@4000 {
 					compatible = "arm,pl041", "arm,primecell";
